@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="ejbModule"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_07">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="oracle.eclipse.tools.glassfish.lib.system">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.ejb"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="D:/università/LIBRERIE UTILI/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/università/LIBRERIE UTILI/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="D:/università/LIBRERIE UTILI/slf4j-simple-1.7.7.jar"/>
+	<classpathentry kind="lib" path="D:/università/LIBRERIE UTILI/xml-apis-2.0.2.jar"/>
+	<classpathentry kind="lib" path="D:/università/LIBRERIE UTILI/mysql-connector-java-5.1.32/mysql-connector-java-5.1.32-bin.jar"/>
+	<classpathentry kind="lib" path="D:/università/LIBRERIE UTILI/hibernate-release-4.3.6.Final/lib/required/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="D:/università/LIBRERIE UTILI/hibernate-release-4.3.6.Final/lib/required/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/università/LIBRERIE UTILI/json-simple-1.1.1.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
