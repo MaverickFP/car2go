@@ -239,7 +239,7 @@ public class GoogleMapsService {
 	            return risdistanza;
 	        } finally {
 	            urlConnection.disconnect();
-	            return 0;
+	            return risdistanza;
 	        }
 	    }
 	    
@@ -309,7 +309,7 @@ public class GoogleMapsService {
 	            return risdurata;
 	        } finally {
 	            urlConnection.disconnect();
-	            return 0;
+	            return risdurata;
 	        }
 	        
 	        
