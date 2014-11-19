@@ -177,7 +177,7 @@ public class UtenteController {
 			 totTempo = totTempo + p.getTempo();
 			 totKm = totKm + p.getDistanza();
 		 }
-		 
+		 //il costo e' 0.29 centesimi a minuto
 		 totCosto = totTempo * 0.29;
 		 
 		 if(!lista.isEmpty())
@@ -202,6 +202,9 @@ public class UtenteController {
 	
 		 HttpSession session = request.getSession();
 		 int idUser = (int) session.getAttribute("idutente");
+		 
+		 //per mostrare l'elenco delle prenotazioni creo un oggetto PrenotazioneView che presenta
+		 // in piu' rispetto a prenotazione il costo di un viaggio e il nome della macchina usata
 		 
 		 List<Prenotazione> listaInput = prenotazioneService.getPrenotazioniByUserId(idUser);
 		 List<PrenotazioneView> listaOutput = new ArrayList<PrenotazioneView>();
@@ -349,12 +352,17 @@ public class UtenteController {
 			 float latVecchia = macchina.getLatitudine();
 			 float longVecchia = macchina.getLongitudine();
 			 
-			 float distanza = googleService.calculateDistance(latVecchia, longVecchia, latitudine, longitudine);
-			 int distanzaInt = (int) distanza;
-			 System.out.println(distanzaInt);
+			 //float distanza = googleService.calculateDistance(latVecchia, longVecchia, latitudine, longitudine);
+			 //int distanzaInt = (int) distanza;
+			 int distanzaInt = googleService.getDistanzaStradale(latVecchia, longVecchia, latitudine, longitudine);
+			 
+			 System.out.println("Dentro web app" + distanzaInt);
 			 System.out.println(prenotazione.getIdPrenotazione());
 			 prenotazione.setDistanza(distanzaInt);
-			 prenotazione.setTempo(distanzaInt*2);
+			 //prenotazione.setTempo(distanzaInt*2);
+			 int tempoDistanza = googleService.getTempoTragitto(latVecchia, longVecchia, latitudine, longitudine);
+			 System.out.println("Dentro app web " + tempoDistanza);
+			 prenotazione.setTempo(tempoDistanza);
 			 prenotazioneService.updatePrenotazione(prenotazione);
 			 
 			 macchina.setNote(testoNota);

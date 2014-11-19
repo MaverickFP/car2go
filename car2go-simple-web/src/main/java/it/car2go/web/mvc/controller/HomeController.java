@@ -1,8 +1,9 @@
 package it.car2go.web.mvc.controller;
 
+import it.car2go.ejb.stateful.ApplicationEJBRemote;
 import it.car2go.model.Macchina;
+import it.car2go.service.GeoService;
 import it.car2go.service.MacchinaService;
-
 
 import java.util.List;
 import java.util.Map;
@@ -22,9 +23,11 @@ public class HomeController {
 	@Autowired
 	private MacchinaService macchinaService;
 	
+	
 	@Inject
 	public HomeController(MacchinaService macchinaService){
 		this.macchinaService = macchinaService;
+		
 	}
 	
 	
@@ -48,11 +51,13 @@ public class HomeController {
 	@RequestMapping("/hello")
     public ModelAndView helloWorld() {
 		
+		
+		
 		List<Macchina> lista = macchinaService.getMacchineNonPrenotate();
 		int size = lista.size();
 		
 		String message = "pippo";
-        return new ModelAndView("home", "message", size);
+        return new ModelAndView("home", "message", message);
 	}
 	
 

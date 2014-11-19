@@ -363,12 +363,18 @@ public class UtenteController {
 			 float latVecchia = macchina.getLatitudine();
 			 float longVecchia = macchina.getLongitudine();
 			 
-			 float distanza = googleService.calculateDistance(latVecchia, longVecchia, latitudine, longitudine);
-			 int distanzaInt = (int) distanza;
+			 //float distanza = googleService.calculateDistance(latVecchia, longVecchia, latitudine, longitudine);
+			 //int distanzaInt = (int) distanza;
+			 
+			 int distanzaInt = googleService.getDistanzaStradale(latVecchia, longVecchia, latitudine, longitudine);
+			 
+			 
 			 System.out.println(distanzaInt);
 			 System.out.println(prenotazione.getIdPrenotazione());
 			 prenotazione.setDistanza(distanzaInt);
-			 prenotazione.setTempo(distanzaInt*2);
+			 //prenotazione.setTempo(distanzaInt*2);
+			 int tempoDistanza = googleService.getTempoTragitto(latVecchia, longVecchia, latitudine, longitudine);
+			 prenotazione.setTempo(tempoDistanza);
 			 prenotazioneService.updatePrenotazione(prenotazione);
 			 
 			 macchina.setNote(testoNota);

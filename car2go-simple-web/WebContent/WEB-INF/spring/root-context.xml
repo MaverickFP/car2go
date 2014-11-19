@@ -106,6 +106,25 @@
 		<bean id="prenotazioneService" class="it.car2go.servant.PrenotazioneServant">
 			<property name="prenotazioneDao" ref="prenotazioneDao"/>
 		</bean>
+		
+		
+		<!-- Integrazione con EJB 		
+		<jee:jndi-lookup id="geoBean" jndi-name="GeoEjb">
+			<jee:environment>
+			org.omg.CORBA.ORBInitialHost = localhost
+			</jee:environment>
+		</jee:jndi-lookup>
+		-->
+		
+		<!-- Integrazione con EJB 
+		<jee:jndi-lookup id="applicationBean" jndi-name="ApplicationEJB">
+			<jee:environment>
+			org.omg.CORBA.ORBInitialHost = localhost
+			</jee:environment>
+		</jee:jndi-lookup>
+		-->
+
+		
 
 
 </beans>

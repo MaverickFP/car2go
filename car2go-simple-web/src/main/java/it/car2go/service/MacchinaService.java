@@ -4,6 +4,9 @@ import it.car2go.model.Macchina;
 
 import java.util.List;
 
+import javax.ejb.Remote;
+
+@Remote
 public interface MacchinaService {
 	
 	List<Macchina> getMacchine();
