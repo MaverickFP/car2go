@@ -139,8 +139,6 @@ public class UtenteController {
 	 @RequestMapping("/user/goUserHome")
 	 public  String goUserHome(Map<String,Object> model, HttpServletRequest request,HttpServletResponse response) {
 		 
-		
-		 
 		 HttpSession session = request.getSession();
 		 int idUser = (int) session.getAttribute("idutente");
 		 
@@ -149,8 +147,6 @@ public class UtenteController {
 		 model.put("message", "Benvenuto " + u.getNome() + " " + u.getCognome());
 		 
 		 return"utente/user/homeuser";
-		 
-		
 		 
 	 }
 	 
@@ -237,8 +233,7 @@ public class UtenteController {
 	 
 	 
 	 @RequestMapping("user/prenota")
-	 public String showMacchineLibereUser(Map<String,Object> model, HttpServletRequest request,HttpServletResponse response){
-		
+	 public String showMacchineLibereUser(Map<String,Object> model, HttpServletRequest request,HttpServletResponse response){		
 		 
 		 HttpSession session = request.getSession();
 		 int idUser = (int) session.getAttribute("idutente");
@@ -287,8 +282,7 @@ public class UtenteController {
 	 
 	 @RequestMapping(value = "/user/delguida", method = RequestMethod.POST)
 	 public ModelAndView cancellaGuida(HttpServletRequest request,HttpServletResponse response){
-		 
-		
+		 	
 		 
 		 HttpSession session = request.getSession();
 		 int idUtente = (int) session.getAttribute("idutente");
@@ -307,8 +301,7 @@ public class UtenteController {
 		 
 		 //cancello la prenotazione
 		 prenotazioneService.delPrenotazione(idPren);
-		 
-		 
+		 		 
 		 //ripoto l'utente alla sua homepage		 
 		 return new ModelAndView("utente/user/homeuser", "message", "Benvenuto " + utente.getNome() + " " + utente.getCognome());
 		 
@@ -336,7 +329,6 @@ public class UtenteController {
 		 int numEsterno = Integer.parseInt(esterno);
 		 String testoNota = request.getParameter("note");
 		 
-		 
 		 GoogleMapsService googleService = new GoogleMapsService();
 		 double latitudine = googleService.generaLatitudine();
 		 double longitudine = googleService.generaLongitudine();
@@ -349,12 +341,17 @@ public class UtenteController {
 			 float latVecchia = macchina.getLatitudine();
 			 float longVecchia = macchina.getLongitudine();
 			 
-			 float distanza = googleService.calculateDistance(latVecchia, longVecchia, latitudine, longitudine);
-			 int distanzaInt = (int) distanza;
+			 //float distanza = googleService.calculateDistance(latVecchia, longVecchia, latitudine, longitudine);
+			 //int distanzaInt = (int) distanza;
+			 
+			 int distanzaInt = googleService.getDistanzaStradale(latVecchia, longVecchia, latitudine, longitudine);
+			 
 			 System.out.println(distanzaInt);
 			 System.out.println(prenotazione.getIdPrenotazione());
 			 prenotazione.setDistanza(distanzaInt);
-			 prenotazione.setTempo(distanzaInt*2);
+			 //prenotazione.setTempo(distanzaInt*2);
+			 int tempoDistanza = googleService.getTempoTragitto(latVecchia, longVecchia, latitudine, longitudine);			 
+			 prenotazione.setTempo(tempoDistanza);
 			 prenotazioneService.updatePrenotazione(prenotazione);
 			 
 			 macchina.setNote(testoNota);

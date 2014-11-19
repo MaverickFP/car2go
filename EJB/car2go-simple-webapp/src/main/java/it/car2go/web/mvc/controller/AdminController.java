@@ -50,8 +50,6 @@ public class AdminController {
 	 @RequestMapping("/goAdminHome")
 	 public  String goAdminHome(Map<String,Object> model, HttpServletRequest request,HttpServletResponse response) {
 		 
-		
-		 
 		 HttpSession session = request.getSession();
 		 int idUser = (int) session.getAttribute("idutente");
 		 
@@ -217,8 +215,7 @@ public class AdminController {
 	 
 	 
 	 @RequestMapping(value="/doPulisciInterno", method = RequestMethod.POST)
-	 public String doPulisciInternoAuto(Map<String,Object> model, HttpServletRequest request,HttpServletResponse response){
-		
+	 public String doPulisciInternoAuto(Map<String,Object> model, HttpServletRequest request,HttpServletResponse response){		
 		
 		 HttpSession session = request.getSession();
 		 int idUser = (int) session.getAttribute("idutente");
@@ -239,8 +236,7 @@ public class AdminController {
 	 
 	 
 	 @RequestMapping("/ripara")
-	 public String riparaEsternoAuto(Map<String,Object> model, HttpServletRequest request,HttpServletResponse response){
-		 
+	 public String riparaEsternoAuto(Map<String,Object> model, HttpServletRequest request,HttpServletResponse response){		 
 		 
 		 HttpSession session = request.getSession();
 		 int idUser = (int) session.getAttribute("idutente");

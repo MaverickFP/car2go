@@ -28,6 +28,8 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 		
 		
+		<!-- Contine la definizione di hibernate ed i relativi dao (non va toccata) -->
+		
 		<!-- 
 		vedere bene il transactionManager;
 		se uso glassfish potrei dover cambiare la class del dataSource
@@ -90,22 +92,7 @@
 		</bean>
 		
 		
-		<!-- Bean Service -->
-		<bean id="macchinaService" class="it.car2go.servant.MacchinaServant">
-			<property name="macchinaDao" ref="macchinaDao"/>
-		</bean>
 		
-		<bean id="ruoloService" class="it.car2go.servant.RuoloServant">
-			<property name="ruoloDao" ref="ruoloDao"/>
-		</bean>
-		
-		<bean id="utenteService" class="it.car2go.servant.UtenteServant">
-			<property name="utenteDao" ref="utenteDao"/>
-		</bean>
-	
-		<bean id="prenotazioneService" class="it.car2go.servant.PrenotazioneServant">
-			<property name="prenotazioneDao" ref="prenotazioneDao"/>
-		</bean>
 		
 		
 
