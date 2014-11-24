@@ -125,7 +125,7 @@ public class PrenotazioneDAOEJB implements PrenotazioneDAO {
 
 	@Override
 	public void aggiornaPrenotazione(Prenotazione p) {
-		String sql = "UPDATE Utente SET idUtente = ?, idMacchina = ?, distanza = ?, tempo = ?, data = ? WHERE idPrenotazione = ?";
+		String sql = "UPDATE Prenotazione SET idUtente = ?, idMacchina = ?, distanza = ?, tempo = ?, data = ? WHERE idPrenotazione = ?";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
